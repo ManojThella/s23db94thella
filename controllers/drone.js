@@ -23,8 +23,24 @@ exports.drone_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: Drone detail: ' + req.params.id);
 };
 // Handle drone create on POST.
-exports.drone_create_post = function(req, res) {
- res.send('NOT IMPLEMENTED: drone create POST');
+exports.drone_create_post = async function(req, res) {
+    console.log(req.body)
+    let document = new drone();
+    // We are looking for a body, since POST does not have query parameters.
+ // Even though bodies can be in many different formats, we will be picky
+ // and require that it be a json object
+ // {"drone_type":"goat", "cost":12, "size":"large"}
+ document.type = req.body.type;
+ document.cost = req.body.cost;
+ document.use = req.body.use;
+ try{
+ let results = await document.save();
+ res.send(results);
+ }
+ catch(err){
+ res.status(500);
+ res.send(`{"error": ${err}}`);
+ }
 };
 // Handle drone delete form on DELETE.
 exports.drone_delete = function(req, res) {
