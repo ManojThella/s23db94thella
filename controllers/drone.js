@@ -1,26 +1,29 @@
 var drone = require('../models/drone');
+/*// List of all drones
+exports.drone_list = function(req, res) {
+ res.send('NOT IMPLEMENTED: Drone list');
+};
+*/
+
 // List of all drones
 exports.drone_list = async function(req, res) {
- //res.send('NOT IMPLEMENTED: Drone list');
- {
     try{
-        theDrone = await drone.find();
-        res.send(theDrone);
+        thedrones = await drone.find();
+        res.send(thedrones);
     }
     catch(err){
         res.status(500);
-        res.send(`{"error":${err}}`);
-    }
- };
-};
+        res.send(`{"error": ${err}}`);
+    } 
+};   
+
+
 // for a specific drone.
 exports.drone_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: Drone detail: ' + req.params.id);
 };
 // Handle drone create on POST.
-exports.drone_create_post = async function(req, res) {
-    console.log(req.body)
-    let document = new Drone();
+exports.drone_create_post = function(req, res) {
  res.send('NOT IMPLEMENTED: drone create POST');
 };
 // Handle drone delete form on DELETE.
