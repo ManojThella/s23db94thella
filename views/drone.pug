@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  - var Results=[{type:"Multi-Rotor",cost:145,use:"Visual inspections"},{type:"Fixed-Wing",cost:195,use:"Aerial Mapping"},{type:"Single-Rotor",cost:225,use:"Carrying heavy payloads"}];
+  - let Results=results;//- [{type:"Multi-Rotor",cost:145,use:"Visual inspections"},{type:"Fixed-Wing",cost:195,use:"Aerial Mapping"},{type:"Single-Rotor",cost:225,use:"Carrying heavy payloads"}];
     div(class="container-fluid")
       div(class="row")
         each drone in Results

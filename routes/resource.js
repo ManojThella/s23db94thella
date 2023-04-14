@@ -13,17 +13,17 @@ router.get('/', api_controller.api);
 /// DRONE ROUTES ///
 
 // POST request for creating a Drone.
-router.post('/drones', drone_controller.drone_create_post); // drone
+router.post('/drone', drone_controller.drone_create_post); // drone
 
 // DELETE request to delete Drone.
-router.delete('/drones/:id', drone_controller.drone_delete);
+router.delete('/drone/:id', drone_controller.drone_delete);
 
 // PUT request to update Drone.
-router.put('/drones/:id', drone_controller.drone_update_put);
+router.put('/drone/:id', drone_controller.drone_update_put);
 
 // GET request for one Drone.
-router.get('/drones/:id', drone_controller.drone_detail);
+router.get('/drone/:id', drone_controller.drone_detail);
 
 // GET request for list of all Drone items.
-router.get('/drones', drone_controller.drone_list);
+router.get('/drone', drone_controller.drone_list);
 module.exports = router;

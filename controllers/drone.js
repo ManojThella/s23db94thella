@@ -34,3 +34,15 @@ exports.drone_delete = function(req, res) {
 exports.drone_update_put = function(req, res) {
  res.send('NOT IMPLEMENTED: drone update PUT' + req.params.id);
 };
+// VIEWS
+// Handle a show all view
+exports.drone_view_all_Page = async function(req, res) {
+    try{
+    thedrones = await drone.find();
+    res.render('drone', { title: 'Drone Search Results', results: thedrones });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+   };
