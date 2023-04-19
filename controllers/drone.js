@@ -50,9 +50,21 @@ exports.drone_create_post = async function(req, res) {
  }
 };
 // Handle drone delete form on DELETE.
-exports.drone_delete = function(req, res) {
+/*exports.drone_delete = function(req, res) {
  res.send('NOT IMPLEMENTED: drone delete DELETE ' + req.params.id);
-};
+};*/
+exports.drone_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+        result = await drone.findByIdAndDelete( req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
+   };
+   
 // Handle drone update form on PUT.
 /*exports.drone_update_put = function(req, res) {
  res.send('NOT IMPLEMENTED: drone update PUT' + req.params.id);
