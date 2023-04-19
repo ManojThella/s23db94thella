@@ -5,4 +5,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/',drone_controlers.drone_view_all_Page);
 
+/* GET detail drone page */
+router.get('/detail', drone_controlers.drone_view_one_Page);
+
 module.exports = router;
