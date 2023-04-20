@@ -2,19 +2,19 @@ extends layout
 block content
  h1= title
  - let droneid = toShow._id
- - let drone_type = toShow.type
- - let dronecost = toShow.cost
- - let droneuse = toShow.use
+ - let type = toShow.type
+ - let cost = toShow.cost
+ - let use = toShow.use
  div
   div.row
    div(class='droneAttr mr-3') Drone ID is:
    div #{droneid}
   div.row
    div(class='droneAttr mr-3') Drone Type is:
-   div #{drone_type}
+   div #{type}
   div.row
    div(class='droneAttr mr-3') Drone Cost is:
-   div #{dronecost}
+   div #{cost}
    div.row
    div(class='droneAttr mr-3') Drone Use is:
-   div #{droneuse}
+   div #{use}

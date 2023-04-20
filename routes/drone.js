@@ -8,4 +8,7 @@ router.get('/',drone_controlers.drone_view_all_Page);
 /* GET detail drone page */
 router.get('/detail', drone_controlers.drone_view_one_Page);
 
+/* GET create drone page */
+router.get('/create', drone_controlers.drone_create_Page);
+
 module.exports = router;
