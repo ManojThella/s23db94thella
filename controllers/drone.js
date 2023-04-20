@@ -127,3 +127,17 @@ exports.drone_create_Page = function(req, res) {
         res.send(`{'error': '${err}'}`);
     }
 };
+
+// Handle building the view for updating a drone.
+// query provides the id
+exports.drone_update_Page = async function(req, res) {
+    console.log("update view for item "+req.query.id)
+        try{
+            let result = await drone.findById(req.query.id)
+            res.render('droneupdate', { title: 'drone Update', toShow: result });
+        }
+        catch(err){
+             res.status(500)
+             res.send(`{'error': '${err}'}`);
+        }
+};

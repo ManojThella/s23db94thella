@@ -11,4 +11,7 @@ router.get('/detail', drone_controlers.drone_view_one_Page);
 /* GET create drone page */
 router.get('/create', drone_controlers.drone_create_Page);
 
+/* GET create update page */
+router.get('/update', drone_controlers.drone_update_Page);
+
 module.exports = router;
