@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  h1= title
+ div(class="style")
+  h1(class="title")= title
   - let Results=results;//- [{type:"Multi-Rotor",cost:145,use:"Visual inspections"},{type:"Fixed-Wing",cost:195,use:"Aerial Mapping"},{type:"Single-Rotor",cost:225,use:"Carrying heavy payloads"}];
     div(class="container-fluid")
       div(class="row")

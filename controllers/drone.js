@@ -120,7 +120,7 @@ exports.drone_view_one_Page = async function(req, res) {
 exports.drone_create_Page = function(req, res) {
     console.log("create view")
     try{
-        res.render('dronecreate', { title: 'drone Create'});
+        res.render('dronecreate', { title: 'Drone Create'});
     }
     catch(err){
         res.status(500)
@@ -134,7 +134,7 @@ exports.drone_update_Page = async function(req, res) {
     console.log("update view for item "+req.query.id)
         try{
             let result = await drone.findById(req.query.id)
-            res.render('droneupdate', { title: 'drone Update', toShow: result });
+            res.render('droneupdate', { title: 'Drone Update', toShow: result });
         }
         catch(err){
              res.status(500)
@@ -147,7 +147,7 @@ exports.drone_delete_Page = async function(req, res) {
     console.log("Delete view for id " + req.query.id)
         try{
             result = await drone.findById(req.query.id)
-            res.render('dronedelete', { title: 'drone Delete', toShow: result });
+            res.render('dronedelete', { title: 'Drone Delete', toShow: result });
         }
         catch(err){
             res.status(500)

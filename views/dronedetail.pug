@@ -1,20 +1,23 @@
 extends layout
 block content
  h1= title
- - let droneid = toShow._id
- - let type = toShow.type
- - let cost = toShow.cost
- - let use = toShow.use
- div
-  div.row
-   div(class='droneAttr mr-3') Drone ID is:
-   div #{droneid}
-  div.row
-   div(class='droneAttr mr-3') Drone Type is:
-   div #{type}
-  div.row
-   div(class='droneAttr mr-3') Drone Cost is:
-   div #{cost}
-   div.row
-   div(class='droneAttr mr-3') Drone Use is:
-   div #{use}
+ if (toShow == null)
+        h2 No instance to view details
+ else
+        - let droneid = toShow._id
+        - let type = toShow.type
+        - let cost = toShow.cost
+        - let use = toShow.use
+        div
+          div.row
+          div(class='droneAttr mr-3') Drone ID is:
+          div #{droneid}
+          div.row
+          div(class='droneAttr mr-3') Drone Type is:
+          div #{type}
+          div.row
+          div(class='droneAttr mr-3') Drone Cost is:
+          div #{cost}
+          div.row
+          div(class='droneAttr mr-3') Drone Use is:
+          div #{use}
