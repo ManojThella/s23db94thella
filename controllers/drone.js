@@ -141,3 +141,16 @@ exports.drone_update_Page = async function(req, res) {
              res.send(`{'error': '${err}'}`);
         }
 };
+
+// Handle a delete one view with id from query
+exports.drone_delete_Page = async function(req, res) {
+    console.log("Delete view for id " + req.query.id)
+        try{
+            result = await drone.findById(req.query.id)
+            res.render('dronedelete', { title: 'drone Delete', toShow: result });
+        }
+        catch(err){
+            res.status(500)
+            res.send(`{'error': '${err}'}`);
+        }
+};
