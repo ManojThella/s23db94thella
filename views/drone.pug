@@ -4,10 +4,13 @@ block content
  div(class="style")
   h1(class="title")= title
   - let Results=results;//- [{type:"Multi-Rotor",cost:145,use:"Visual inspections"},{type:"Fixed-Wing",cost:195,use:"Aerial Mapping"},{type:"Single-Rotor",cost:225,use:"Carrying heavy payloads"}];
-    div(class="container-fluid")
-      div(class="row")
+  div(class="container-fluid")
+      div(class="row m-1")
         each drone in Results
-          div(class="col-sm-2")
-            p Type: #{drone.type}
-            p Cost: $#{drone.cost}
-            p Use: #{drone.use}
+          - let destination = `dispatch(\"/drone/update?id=${drone._id}\")`
+          div(class="row-sm-2", class="m-1") Drone #{drone.type} cost is (#{drone.cost}) used for #{drone.use}
+            button.btn( class="btn-primary ml-1", onclick=destination) Update
+  script.
+      function dispatch(path){
+      window.location.href=path
+      }
