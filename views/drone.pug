@@ -4,12 +4,18 @@ block content
  div(class="style")
   h1(class="title")= title
   - let Results=results;//- [{type:"Multi-Rotor",cost:145,use:"Visual inspections"},{type:"Fixed-Wing",cost:195,use:"Aerial Mapping"},{type:"Single-Rotor",cost:225,use:"Carrying heavy payloads"}];
+  - let create = `dispatch(\"/drone/create\")`
+  button.btn( class="btn-primary ml-1", onclick=create) Create
   div(class="container-fluid")
       div(class="row m-1")
         each drone in Results
           - let destination = `dispatch(\"/drone/update?id=${drone._id}\")`
+          - let deletion = `dispatch(\"/drone/delete?id=${drone._id}\")`
+          - let detail = `dispatch(\"/drone/detail?id=${drone._id}\")`
           div(class="row-sm-2", class="m-1") Drone #{drone.type} cost is (#{drone.cost}) used for #{drone.use}
-            button.btn( class="btn-primary ml-1", onclick=destination) Update
+            button.btn( class="btn-warning ml-1", onclick=destination) Update
+            button.btn( class="btn-danger ml-1", onclick=deletion) Delete
+            button.btn( class="btn-secondary ml-1", onclick=detail) Detail
   script.
       function dispatch(path){
         window.location.href=path

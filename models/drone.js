@@ -1,7 +1,15 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 const droneSchema = mongoose.Schema({
-type: String,
+type: {
+    type: String,
+    minLength: 5
+},
 cost: Number,
-use: String
-})
+use: {
+    type: String,
+    minLength: 3
+}
+});
+
+
 module.exports = mongoose.model("drone",droneSchema)
